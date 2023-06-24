@@ -37,9 +37,6 @@ const Form: FC<Props> = ({
   children,
 }) => {
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   onFormChange();
-  // }, [onFormChange]);
 
   return (
     <Box

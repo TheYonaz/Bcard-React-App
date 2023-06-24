@@ -13,6 +13,23 @@ export const getUser = () => {
   const user: TokenType = JwtDecode(token);
   return user;
 };
+export const getRemainingTime = () => {
+  const remainingTime = localStorage.getItem("remainingTime");
+  if (remainingTime) {
+    const parsedTime = parseInt(remainingTime);
+    if (!isNaN(parsedTime)) {
+      return parsedTime;
+    }
+  }
+  return undefined;
+};
+export const setRemainingTime = (time: number | undefined) => {
+  if (time !== undefined) {
+    localStorage.setItem("remainingTime", time.toString());
+  } else {
+    localStorage.removeItem("remainingTime");
+  }
+};
 
 export const removeToken = () => localStorage.removeItem(TOKEN);
 

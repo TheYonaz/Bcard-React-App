@@ -1,3 +1,4 @@
+import { useState, useEffect, useCallback } from "react";
 import useForm from "../../forms/hooks/useForm";
 import Container from "@mui/material/Container";
 import Form from "../../forms/components/Form";
@@ -9,13 +10,13 @@ import FormLink from "../../forms/components/FormLink";
 import loginSchema from "../models/Joi/loginSchema";
 import useHandleUsers from "../hooks/useHandleUsers";
 import { initialLogInForm } from "../helpers/initialForms/initialLoginForm";
-
-
+import { Typography } from "@mui/material";
+import useTimer from "../hooks/useTimer";
 
 const LoginPage = () => {
   const {
     handleLogin,
-    value: { user },
+    value: { user, error, attempts, seconds },
   } = useHandleUsers();
 
   const { value, ...rest } = useForm(
@@ -23,9 +24,9 @@ const LoginPage = () => {
     loginSchema,
     handleLogin
   );
+
   const { data, errors } = value;
   const { handleInputChange, handleReset, onSubmit, validateForm } = rest;
-
   if (user) return <Navigate replace to={ROUTES.ROOT} />;
 
   return (
@@ -35,33 +36,42 @@ const LoginPage = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-      }}>
-      <Form
-        title="Login"
-        onSubmit={onSubmit}
-        onReset={handleReset}
-        onFormChange={validateForm}
-        spacing={1}
-        styles={{ maxWidth: "450px" }}>
-        <Input
-          label="email"
-          name="email"
-          type="email"
-          data={data}
-          error={errors.email}
-          onInputChange={handleInputChange}
-        />
-        <Input
-          label="password"
-          name="password"
-          type="password"
-          data={data}
-          error={errors.password}
-          onInputChange={handleInputChange}
-        />
+      }}
+    >
+      <>
+        <Form
+          title="Login"
+          onSubmit={onSubmit}
+          onReset={handleReset}
+          onFormChange={validateForm}
+          spacing={1}
+          styles={{ maxWidth: "450px" }}
+        >
+          <Input
+            label="email"
+            name="email"
+            type="email"
+            data={data}
+            error={errors.email}
+            onInputChange={handleInputChange}
+          />
+          <Input
+            label="password"
+            name="password"
+            type="password"
+            data={data}
+            error={errors.password}
+            onInputChange={handleInputChange}
+          />
 
-        <FormLink text="Did not registered yet?" to={ROUTES.SIGNUP} />
-      </Form>
+          <FormLink text="Did not registered yet?" to={ROUTES.SIGNUP} />
+          {/* {(seconds !== 86400 && seconds !==undefined) && (
+            <Typography component="span" justifyContent="center">
+              <>Time until unlocked :{seconds}</>
+            </Typography>
+          )} */}
+        </Form>
+      </>
     </Container>
   );
 };
