@@ -65,11 +65,11 @@ const LoginPage = () => {
           />
 
           <FormLink text="Did not registered yet?" to={ROUTES.SIGNUP} />
-          {/* {(seconds !== 86400 && seconds !==undefined) && (
+          {error && (
             <Typography component="span" justifyContent="center">
-              <>Time until unlocked :{seconds}</>
-            </Typography>
-          )} */}
+              <>{error}</>
+            </Typography> )}
+          
         </Form>
       </>
     </Container>

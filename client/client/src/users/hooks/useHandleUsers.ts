@@ -67,6 +67,7 @@ const useHandleUsers = () => {
   //     return () => clearInterval(timer);
   //   }
   // }, [timerActivated, remainingTime]);
+  
   const requestStatus = useCallback(
     (
       loading: boolean,
@@ -94,7 +95,7 @@ const useHandleUsers = () => {
         setAttempts((prev) => (prev = 0));
         navigate(ROUTES.CARDS);
       } catch (error) {
-        // console.log(error);
+        console.log(error);
         // console.log(timerActivated);
         // setAttempts((prev) => prev + 1);
         // if (attempts >= 3) {
