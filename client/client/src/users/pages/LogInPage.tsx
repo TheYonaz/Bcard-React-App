@@ -10,8 +10,6 @@ import FormLink from "../../forms/components/FormLink";
 import loginSchema from "../models/Joi/loginSchema";
 import useHandleUsers from "../hooks/useHandleUsers";
 import { initialLogInForm } from "../helpers/initialForms/initialLoginForm";
-import { Typography } from "@mui/material";
-import useTimer from "../hooks/useTimer";
 
 const LoginPage = () => {
   const {
@@ -65,11 +63,6 @@ const LoginPage = () => {
           />
 
           <FormLink text="Did not registered yet?" to={ROUTES.SIGNUP} />
-          {error && (
-            <Typography component="span" justifyContent="center">
-              <>{error}</>
-            </Typography> )}
-          
         </Form>
       </>
     </Container>
