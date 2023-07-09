@@ -3,16 +3,15 @@ import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
 import SearchBar from "../search-bar/SearchBar";
 import DarkModeIcon from "@mui/icons-material/DarkMode";
-import LightModeIcon  from "@mui/icons-material/LightMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
 import MoreButton from "./MoreButton";
 import Logged from "./Logged";
 import NotLogged from "./NotLogged";
 import { useTheme } from "../../../../providers1/ThemeProviders1";
 import { useUser } from "../../../../users/providers/UserProviders";
 
-
 const RightNavBar = () => {
-  const {user} =useUser()
+  const { user } = useUser();
 
   const { isDark, toggleDarkMode } = useTheme();
   return (
@@ -21,7 +20,7 @@ const RightNavBar = () => {
         <SearchBar />
 
         <IconButton onClick={toggleDarkMode} sx={{ marginLeft: 1 }}>
-          {(!isDark) ? <LightModeIcon /> : <DarkModeIcon />}
+          {!isDark ? <LightModeIcon /> : <DarkModeIcon />}
         </IconButton>
 
         {!user && <NotLogged />}
@@ -29,8 +28,7 @@ const RightNavBar = () => {
         {user && <Logged />}
       </Box>
 
-      <MoreButton //onClick={() => console.log("you clicked The more button!")}
-      />
+      <MoreButton />
     </>
   );
 };
