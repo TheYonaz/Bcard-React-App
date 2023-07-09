@@ -14,7 +14,7 @@ import { initialLogInForm } from "../helpers/initialForms/initialLoginForm";
 const LoginPage = () => {
   const {
     handleLogin,
-    value: { user, error, attempts, seconds },
+    value: { user },
   } = useHandleUsers();
 
   const { value, ...rest } = useForm(
