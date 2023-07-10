@@ -18,15 +18,17 @@ const SignupPage = () => {
     EditUserSchema,
     handelEditUser
   );
-  const { handleInputChange, handleReset, onSubmit, validateForm, setData } = rest;
+  const { handleInputChange, handleReset, onSubmit, validateForm, setData } =
+    rest;
   useEffect(() => {
-    if(!user){navigate(ROUTES.ROOT)}
+    if (!user) {
+      navigate(ROUTES.ROOT);
+    }
     if (user)
       handelGetUser(user._id).then((userFromClient) => {
         if (user?._id !== userFromClient!._id) return navigate(ROUTES.ROOT);
         const modeledUser = mapUserToModel(userFromClient!);
         setData(modeledUser);
-        console.log(modeledUser);
       });
   }, [user]);
 

@@ -1,16 +1,13 @@
-
-
 import UserInterface from "../../models/interfaces/UserInterface";
 import UserEditInterface from "../../models/interfaces/UserEditInterface";
-import { RegistrationForm,RegistrationEditForm } from "../../models/types/userType";
-
-
+import {
+  RegistrationForm,
+  RegistrationEditForm,
+} from "../../models/types/userType";
 
 const mapUserToModel = (user: UserEditInterface): RegistrationEditForm => {
-  console.log(user);
-  
   return {
-    _id:user._id,
+    _id: user._id,
     first: user.name.first,
     middle: user.name.middle!,
     last: user.name.last,
@@ -25,7 +22,7 @@ const mapUserToModel = (user: UserEditInterface): RegistrationEditForm => {
     url: user.image.url,
     alt: user.image.alt,
     isBusiness: user.isBusiness,
-    isAdmin: user.isAdmin
+    isAdmin: user.isAdmin,
   };
 };
 

@@ -22,7 +22,6 @@ const useForm = <TForm extends Record<string, unknown>>(
     ({ name, value }: TargetType) => {
       const obj = { [name]: value };
       const generateSchema = Joi.object({ [name]: schema[name] });
-      // console.log(generateSchema);
       const { error } = generateSchema.validate(obj);
       return error ? error.details[0].message : null;
     },
@@ -69,7 +68,6 @@ const useForm = <TForm extends Record<string, unknown>>(
     handleReset,
     validateForm,
     setData,
-    
   };
 };
 

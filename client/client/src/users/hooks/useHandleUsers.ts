@@ -57,7 +57,6 @@ const useHandleUsers = () => {
         requestStatus(false, null, userFromLocalStorage);
         navigate(ROUTES.CARDS);
       } catch (error) {
-        console.log(error);
         if (typeof error === "string") requestStatus(false, error, null);
       }
     },

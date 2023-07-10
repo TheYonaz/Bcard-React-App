@@ -91,7 +91,6 @@ export const useCards = () => {
       setLoading(true);
       const card = await getCard(cardId);
       requestStatus(false, null, null, card);
-      console.log(card);
       return card;
     } catch (error) {
       if (typeof error === "string")

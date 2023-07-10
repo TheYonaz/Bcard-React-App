@@ -20,7 +20,6 @@ const ArrayState = () => {
   const [isLogged, setIsLogged] = useState(false);
   const [post, setPost] = useState(INITIAL_POST);
   const [posts, setPosts] = useState<[] | Task[]>([]);
-  console.log(isLogged);
   const { subtitle, title, author, createdAt } = post;
 
   const handleTitleChange = (key: string) => {
@@ -35,7 +34,7 @@ const ArrayState = () => {
   };
   return (
     <Box>
-      <button onClick={() => setIsLogged((prev) => !prev)} >
+      <button onClick={() => setIsLogged((prev) => !prev)}>
         {isLogged ? "Log Out" : "Log In"}
       </button>
       <div></div>
@@ -51,7 +50,9 @@ const ArrayState = () => {
               value={post.subtitle}
             />
             <input onChange={handleTitleChange("author")} value={post.author} />
-            <button type="submit" disabled={!subtitle || !title || !author}>Create Post</button>
+            <button type="submit" disabled={!subtitle || !title || !author}>
+              Create Post
+            </button>
           </form>
           {posts.length > 0 && (
             <TableContainer>
@@ -72,9 +73,7 @@ const ArrayState = () => {
                       <TableCell>{post.title}</TableCell>
                       <TableCell>{post.subtitle}</TableCell>
                       <TableCell>{post.author}</TableCell>
-                      <TableCell>
-                        {post.createdAt.toLocaleString()}
-                      </TableCell>
+                      <TableCell>{post.createdAt.toLocaleString()}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>

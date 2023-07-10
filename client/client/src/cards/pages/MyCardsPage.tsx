@@ -38,7 +38,6 @@ const MyCardsPage = () => {
       {cards && (
         <Fab
           onClick={() => {
-            console.log(user);
             navigate(ROUTES.CREATE_CARD);
           }}
           color="primary"

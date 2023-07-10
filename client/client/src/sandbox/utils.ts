@@ -6,6 +6,5 @@ export const getTime = () => {
 };
 
 export const colorLog = (text: string, color: string) => {
-  console.log(`%c${text}: ${getTime()}`, `color: ${color}; font-weight: bold`);
   return null;
 };

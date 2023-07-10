@@ -53,7 +53,7 @@ export const GetUser = async (userId: string) => {
     const { data } = await axios.get<UserEditInterface>(
       `${apiUrl}/users/${userId}`
     );
-    console.log(data);
+
     if (data) return Promise.resolve(data);
   } catch (error) {
     if (axios.isAxiosError(error))
@@ -63,7 +63,7 @@ export const GetUser = async (userId: string) => {
 export const GetUsers = async (userId: string) => {
   try {
     const { data } = await axios.get<UserEditInterface>(`${apiUrl}/users/`);
-    console.log(data);
+
     if (data) return Promise.resolve(data);
   } catch (error) {
     if (axios.isAxiosError(error))
